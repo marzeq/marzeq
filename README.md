@@ -8,7 +8,5 @@
 
 ---
 
-My biggest project so far was a Discord bot using and API Wrapper for Python called discord.py, created by Rapptz.
-It is called AntiChangeBot, and you can find it's source code in my public repos.
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=marzeq&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
 
-I'm also interested in web dev, mainly front end development, but I'm really new into that stuff.
