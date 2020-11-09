@@ -9,7 +9,7 @@
 
 ---
 
-### Technologies I've worked before
+### Technologies I've worked with before
 
 <br>
 
