@@ -13,7 +13,7 @@
 
 <br>
 
-*Python, discord.py, Flask, JavaScript, Java, Maven, Gradle*
+*Python, discord.py, Django, JavaScript, Java*
 
 ---
 
