@@ -17,4 +17,4 @@
 
 ---
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=marzeq&layout=compact)](https://github-readme-stats.vercel.app/api/top-langs/?username=marzeq&layout=compact?theme=dark)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=marzeq&layout=compact&theme=dark)](https://github-readme-stats.vercel.app/api/top-langs/?username=marzeq&layout=compact&theme=dark)
