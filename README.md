@@ -5,7 +5,6 @@
 ### 🎉 My Goals for 2020 are:
 - Contributing more to the open-source community
 - Improving my Python skills
-- Learn new Launguages like GoLang
 
 ---
 
