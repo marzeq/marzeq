@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-## I am an intermediate/slight advanced Python🐍 developer (almost 2 years of experience), begginer or intermediate in Java☕ (6 months of experience) and Go🔵 (recently started learnig).
+## I am an intermediate/slight advanced Python🐍 developer (almost 2 years of experience), begginer or intermediate in Java☕ (6 months of experience).
 
 ### 🎉 My Goals for 2020 are:
 - Contributing more to the open-source community
