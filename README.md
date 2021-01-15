@@ -1,10 +1,12 @@
 ### Hi there 👋
 
-## I am an intermediate/slight advanced Python🐍 developer (almost 2 years of experience), begginer or intermediate in Java☕.
+## I am an high intermediate/advanced Python🐍 developer (almost 2.5 years of experience), intermediate in Java☕.
 
-### 🎉 My Goals for 2020 are:
-- Contributing more to the open-source community
-- Improving my Python skills
+### 🎉 My Goals for 2021 are:
+- Contributing more to the open source community
+- Improving my Python and TypeScript/JavaScript skills
+- Learn a client side rendering web framework
+- Learn a new programming language
 
 ---
 
@@ -12,7 +14,7 @@
 
 <br>
 
-*Python, discord.py, Django, JavaScript, Java*
+*Python, discord.py, Django, Flask, JavaScript, TypeScript, Java*
 
 ---
 
