@@ -1,4 +1,4 @@
-![[Background](https://marzeq.me/)](https://pbs.twimg.com/profile_banners/1347698201562914817/1631447380/1500x500)
+[![Background](https://pbs.twimg.com/profile_banners/1347698201562914817/1631447380/1500x500)](https://marzeq.me)
 
 ### Hi there!
 
