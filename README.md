@@ -2,7 +2,7 @@
 
 ### Hi there!
 
-## I am an advanced Pytho developer, advanced-intermediate in JavaScript & TypeScript and begginer-intermediate in Java.
+## I am an advanced Python developer, advanced-intermediate in JavaScript & TypeScript and begginer-intermediate in Java.
 
 <br>
 
