@@ -1,3 +1,5 @@
+![Background](https://pbs.twimg.com/profile_banners/1347698201562914817/1631447380/1500x500)
+
 ### Hi there!
 
 ## I am an advanced Pytho developer, advanced-intermediate in JavaScript & TypeScript and begginer-intermediate in Java.
