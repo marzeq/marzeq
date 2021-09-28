@@ -30,8 +30,9 @@ I'm currently working on a big project that involves TypeScript, React, SCSS and
     * Svelte & Sapper
 - **Java**:
     * Spigot API
-- **Linux**
+- **GNU + Linux**
     * Debian & its derivatives
+    * Arch & its derivatives
 
 ---
 
