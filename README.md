@@ -17,7 +17,7 @@ I'm currently working on a big project that involves TypeScript, React, SCSS and
 
 ---
 
-### Technologies and languages that I've worked with before
+### Technologies and languages that I've worked with before:
 
 <br>
 
