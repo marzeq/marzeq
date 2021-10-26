@@ -39,4 +39,4 @@ I'm currently working on a big project that involves TypeScript and React Native
 
 <br>
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=marzeq&theme=dark&show_icons=true)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=marzeq&show_icons=true)
