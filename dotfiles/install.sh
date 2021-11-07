@@ -15,6 +15,8 @@ currentdir=$a
 
 cp "$currentdir"/.bashrc "$HOME"/.bashrc
 cp "$currentdir"/.aliasrc "$HOME"/.aliasrc
+mkdir -p "$HOME"/.config/nvim
+cp "$currentdir"/init.vim "$HOME"/.config/nvim/init.vim
 . "$HOME"/.bashrc
 
 
