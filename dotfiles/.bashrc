@@ -28,7 +28,7 @@ function git_branch() {
     fi
 }
 
-PS1='\[\e[0;1;96m\]\u \[\e[0m\]\[\e[0;3m\]@ \[\e[0;3;95m\]\h \n\[\e[0;1;96m\]\w$(git_branch)\[\e[0;1;3;92m\] ⤙ \[\e[0m\]'
+PS1='\[\e[0;1;96m\]\u \[\e[0;3m\]@ \[\e[0;3;95m\]\h \n\[\e[0;1;96m\]\w\[\e[0;38;5;30m\]$(git_branch) \[\e[0;38;5;34m\]⤙ \[\e[0m\]'
 
 PROMPT_COMMAND="export PROMPT_COMMAND=echo"
 
