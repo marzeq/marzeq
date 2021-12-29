@@ -24,6 +24,7 @@ cp "$currentdir"/init.vim "$HOME"/.config/nvim/init.vim
 #                                            INSTALL PROGRAMS                                                 #
 ###############################################################################################################
 
+read -p "Do you want to install the frequently used programs? (only Arch and Debian/Ubuntu are fully supported) [y/n] " -n 1 -r
 
 #######
 # yay #
