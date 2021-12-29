@@ -17,14 +17,17 @@ cp "$currentdir"/.bashrc "$HOME"/.bashrc
 cp "$currentdir"/.aliasrc "$HOME"/.aliasrc
 mkdir -p "$HOME"/.config/nvim
 cp "$currentdir"/init.vim "$HOME"/.config/nvim/init.vim
-. "$HOME"/.bashrc
-
+mkdir -p "$HOME"/.local/bin
 
 ###############################################################################################################
 #                                            INSTALL PROGRAMS                                                 #
 ###############################################################################################################
 
 read -p "Do you want to install the frequently used programs? (only Arch and Debian/Ubuntu are fully supported) [y/n] " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Nn]$ ]]; then
+	exit
+fi
 
 #######
 # yay #
@@ -44,6 +47,8 @@ if command -v pacman &>/dev/null; then
     fi
 fi
 
+echo ""
+
 ############
 # pacstall #
 ############
@@ -58,6 +63,8 @@ if command -v apt &>/dev/null; then
 		sudo bash -c "$(curl -fsSL https://git.io/JsADh || wget -q https://git.io/JsADh -O -)"
 	fi
 fi
+
+echo ""
 
 
 ####################
@@ -110,11 +117,15 @@ else
 fi
 
 # auth git credentials with github cli
-echo "--------------------------"
-echo "SELECT THE DEFAULT OPTIONS"
-echo "--------------------------"
-echo ""
-gh auth login
+if [[ $(git config --get credential.https://github.com.helper) ]]; then
+	echo "git is already authenticated"
+else
+	echo "##############################"
+	echo "# SELECT THE DEFAULT OPTIONS #"
+	echo "##############################"
+	echo ""
+	gh auth login
+fi
 
 echo ""
 
@@ -170,18 +181,28 @@ fi
 
 echo ""
 
+
 ######################
 # NodeJS through nvm #
 ######################
 
 echo "Installing NodeJS and nvm"
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-nvm install node
+if command -v node &> /dev/null; then
+    echo "NodeJS is already installed"
+else
+	if command -v nvm &> /dev/null; then
+		echo "nvm is already installed"
+	else
+		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+		export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+		[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+	fi
+	nvm install node
+fi
 
 echo ""
+
 
 ########
 # doas #
@@ -189,31 +210,59 @@ echo ""
 
 echo "Installing doas"
 
-if command -v pacman &> /dev/null; then
-	yay -S doas
+if command -v doas &> /dev/null; then
+	echo "doas is already installed"
 else
-	if command -v apt &> /dev/null; then
-		sudo apt install build-essential make bison flex libpam0g-dev
-	elif command -v dnf &> /dev/null; then
-		sudo dnf install gcc gcc-c++ make flex bison pam-devel byacc git
-	elif command -v yum &> /dev/null; then
-		sudo yum install gcc gcc-c++ make flex bison pam-devel byacc git
-	elif command -v zypper &> /dev/null; then
-		sudo zypper install gcc gcc-c++ make flex bison pam-devel byacc git
+	if command -v pacman &> /dev/null; then
+		yay -S doas
 	else
-		echo "No supported package manager found for installing doas, please install Neovim manually: https://github.com/slicer69/doas#installing-build-tools"
-        exit 1
-    fi
-	git clone https://github.com/slicer69/doas
-	cd doas
-	make && sudo make install
-	cd .. && rm -rf doas
-	echo "permit ${USER} as root" | sudo tee -a /usr/local/etc/doas.conf > dev/null
+		if command -v apt &> /dev/null; then
+			sudo apt install build-essential make bison flex libpam0g-dev
+		elif command -v dnf &> /dev/null; then
+			sudo dnf install gcc gcc-c++ make flex bison pam-devel byacc git
+		elif command -v yum &> /dev/null; then
+			sudo yum install gcc gcc-c++ make flex bison pam-devel byacc git
+		elif command -v zypper &> /dev/null; then
+			sudo zypper install gcc gcc-c++ make flex bison pam-devel byacc git
+		else
+			echo "No supported package manager found for installing doas, please install Neovim manually: https://github.com/slicer69/doas#installing-build-tools"
+        	exit 1
+    	fi
+		git clone https://github.com/slicer69/doas
+		cd doas
+		make && sudo make install
+		cd .. && rm -rf doas
+		echo "permit ${USER} as root" | sudo tee -a /usr/local/etc/doas.conf > dev/null
+	fi
 fi
 
 echo ""
 
-source ~/.bashrc
+
+##########
+# pfetch #
+##########
+
+echo "Installing pfetch"
+
+if command -v pfetch &> /dev/null; then
+	echo "pfetch is already installed"
+else
+	if command -v pacman &> /dev/null; then
+		yay -S pfetch
+	elif command -v apt &> /dev/null; then
+		pacstall -I pfetch-bin
+	else
+		git clone https://github.com/dylanaraps/pfetch
+		mv pfetch/pfetch "$HOME/.local/bin"
+		rm -rf pfetch
+	fi
+fi
+
+echo ""
+
+
+source "$HOME/.bashrc"
 
 ################
 # Lunar Client #
@@ -223,11 +272,7 @@ read -p "Do you want to install Lunar Client? [y/n] " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     wget -O LunarClient.AppImage "https://launcherupdates.lunarclientcdn.com/Lunar%20Client-2.9.3.AppImage"
-    xdg-open LunarClient.AppImage
-    echo "!!! SELECT INTEGRATE AND RUN !!!"
-    echo "!!! SELECT INTEGRATE AND RUN !!!"
-    echo "!!! SELECT INTEGRATE AND RUN !!!"
-    echo "After that, you can close the application"
+	appimagelauncherd > /dev/null &
 fi
 
 echo ""
