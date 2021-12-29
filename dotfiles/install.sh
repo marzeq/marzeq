@@ -207,11 +207,13 @@ else
 	cd doas
 	make && sudo make install
 	cd .. && rm -rf doas
-	sudo echo "permit ${USER} as root" > /usr/local/etc/doas.conf
+	echo "permit ${USER} as root" | sudo tee -a /usr/local/etc/doas.conf > dev/null
 fi
 
 echo ""
-	
+
+source ~/.bashrc
+
 ################
 # Lunar Client #
 ################
