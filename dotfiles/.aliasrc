@@ -17,5 +17,4 @@ then
     alias upgrade='sudo pacman -Syu'
 fi
 
-alias vim='nvim'
-alias vi='nvim'
+alias sudo="doas" # now this is based
