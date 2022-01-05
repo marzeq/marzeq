@@ -1,42 +1,12 @@
-[![Background](https://pbs.twimg.com/profile_banners/1347698201562914817/1631447380/1500x500)](https://marzeq.me)
+[![background](https://pbs.twimg.com/profile_banners/1347698201562914817/1631447380/1500x500)](https://marzeq.me)
 
-### Hi there!
+### hi there!
 
-## I am a student and a Python, JavaScript & TypeScript and Java developer
-I love backend development and I'd also like to learn some frontend development
-
+## i am a student and a python, js & ts developer
+i love backend development and i can manage my way around html+css frontend development
 <br>
+i also can code in a bit of java and i played a bit with c and c++
 
-### My goals for the second half of 2021 and for the first half of 2022 are:
-- Contributing more to the open source community
-- Learn the basics of C++
-- Learn modern HTML+CSS and React (+ React Native) which I'm currently terrible at
+i am also a linux enthusiast and have been using it for the past year or so
 
-<br>
-
-I'm currently working on a big project that involves TypeScript and React Native
-
----
-
-### Technologies and languages that I've worked with before:
-
-<br>
-
-- **Python**:
-    * discord.py
-    * Flask
-- **JavaScript & TypeScript**
-    * discord.js
-    * Express
-    * Svelte & Sapper
-- **Java**:
-    * Spigot API
-- **GNU + Linux**
-    * Debian & its derivatives
-    * Arch & its derivatives
-
----
-
-<br>
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=marzeq&show_icons=true)
+you can check out <a href="https://marzeq.me" target="_blank">my website</a> and follow me on <a href="https://twitter.com/marzeqtwt" target="_blank">twitter</a>
