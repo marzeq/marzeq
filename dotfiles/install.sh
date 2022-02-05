@@ -15,15 +15,13 @@ currentdir=$a
 
 cp "$currentdir"/.bashrc "$HOME"/.bashrc
 cp "$currentdir"/.aliasrc "$HOME"/.aliasrc
-mkdir -p "$HOME"/.config/nvim
-cp "$currentdir"/init.vim "$HOME"/.config/nvim/init.vim
-mkdir -p "$HOME"/.local/bin
+mkdir -p "$HOME"/.bin
 
 ###############################################################################################################
 #                                            INSTALL PROGRAMS                                                 #
 ###############################################################################################################
 
-read -p "Do you want to install the frequently used programs? (only Arch and Debian/Ubuntu are fully supported) [y/n] " -n 1 -r
+read -p "Do you want to install the frequently used programs? (only Arch and Ubuntu are fully supported) [y/n] " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Nn]$ ]]; then
 	exit
@@ -33,7 +31,7 @@ fi
 # yay #
 #######
 
-# we'll need this later to install appimagelauncher on arch based distros
+# (On Arch only)
 
 if command -v pacman &>/dev/null; then
     if command -v yay &>/dev/null; then
@@ -53,7 +51,7 @@ echo ""
 # pacstall #
 ############
 
-# we'll need this later to install neovim on arch based distros
+# (On Ubuntu only)
 
 if command -v apt &>/dev/null; then
 	if command -v pacstall &>/dev/null; then
@@ -65,32 +63,6 @@ if command -v apt &>/dev/null; then
 fi
 
 echo ""
-
-
-####################
-# AppImageLauncher #
-####################
-
-# we'll need this later to install lunar client
-
-if command -v appimagelauncherd &> /dev/null; then
-    echo "AppimageLauncher is already installed"
-else
-    echo "Installing AppimageLauncher"
-    if command -v apt &> /dev/null; then
-        sudo add-apt-repository ppa:appimagelauncher-team/stable
-        sudo apt update
-        sudo apt install appimagelauncher
-    elif command -v pacman &> /dev/null; then
-        yay -S appimagelauncher
-    else
-        echo "No supported package manager found for installing AppImageLauncher, please install AppImageLauncher manually: https://github.com/TheAssassin/AppImageLauncher#installation"
-        exit 1
-    fi
-fi
-
-echo ""
-
 
 ##############
 # GitHub CLI #
@@ -156,7 +128,7 @@ echo ""
 
 
 #####################
-# Neovim & vim-plug #
+# Neovim & AstroVim #
 #####################
 
 if command -v nvim &> /dev/null; then
@@ -164,7 +136,9 @@ if command -v nvim &> /dev/null; then
 else
     echo "Installing Neovim"
     if command -v apt &> /dev/null; then
-    	pacstall -I neovim
+        sudo add-apt-repository ppa:neovim-ppa/stable
+        sudo apt-get update
+        sudo apt-get install neovim
     elif command -v pacman &> /dev/null; then
         sudo pacman -S neovim
     elif command -v dnf &> /dev/null; then
@@ -173,11 +147,20 @@ else
         echo "No supported package manager found for installing Neovim, please install Neovim manually: https://github.com/neovim/neovim"
         exit 1
     fi
-    echo ""
-    echo "Installing vim-plug"
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
+
+echo ""
+echo "Installing AstroVim"
+git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
+nvim +PackerSync
+
+echo ""
+echo "Installing Nerd Fonts (required for AstroVim)"
+wget -O CodeNewRoman.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CodeNewRoman.zip"
+unzip CodeNewRoman.zip -d ~/.fonts
+fc-cache -fv
+rm CodeNewRoman.zip
+echo "Make sure you set your terminal font to CodeNewRoman!"
 
 echo ""
 
@@ -225,14 +208,14 @@ else
 		elif command -v zypper &> /dev/null; then
 			sudo zypper install gcc gcc-c++ make flex bison pam-devel byacc git
 		else
-			echo "No supported package manager found for installing doas, please install Neovim manually: https://github.com/slicer69/doas#installing-build-tools"
+			echo "No supported package manager found for installing doas, please install doas manually: https://github.com/slicer69/doas#installing-build-tools"
         	exit 1
     	fi
 		git clone https://github.com/slicer69/doas
 		cd doas
 		make && sudo make install
 		cd .. && rm -rf doas
-		echo "permit ${USER} as root" | sudo tee -a /usr/local/etc/doas.conf > dev/null
+		echo "permit ${USER} as root" | sudo tee -a /usr/local/etc/doas.conf
 	fi
 fi
 
@@ -261,18 +244,3 @@ fi
 
 echo ""
 
-
-source "$HOME/.bashrc"
-
-################
-# Lunar Client #
-################
-
-read -p "Do you want to install Lunar Client? [y/n] " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    wget -O LunarClient.AppImage "https://launcherupdates.lunarclientcdn.com/Lunar%20Client-2.9.3.AppImage"
-	appimagelauncherd > /dev/null &
-fi
-
-echo ""
