@@ -19,18 +19,7 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-function git_branch() {
-    current_branch=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
-    if [[ -z "$current_branch" ]]; then
-        echo ""
-    else
-        echo " $current_branch"
-    fi
-}
-
-PS1='\[\e[0;1;96m\]\u \[\e[0;3m\]@ \[\e[0;3;95m\]\h \n\[\e[0;1;96m\]\w\[\e[0;38;5;30m\]$(git_branch) \[\e[0;38;5;34m\]⤙ \[\e[0m\]'
-
-PROMPT_COMMAND="export PROMPT_COMMAND=echo"
+export PS1="\[\033[38;5;9m\]\u\[$(tput sgr0)\]@\[$(tput sgr0)\]\[\033[38;5;12m\]\h\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;11m\]\w\[$(tput sgr0)\] > \[$(tput sgr0)\]"
 
 test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 alias ls='ls --color=auto'
