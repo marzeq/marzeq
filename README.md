@@ -2,11 +2,11 @@
 
 ### hi there!
 
-## i am a student and a python, js & ts developer
+## i am a student and a python and js+ts developer
 i love backend development and i can manage my way around html+css frontend development
 <br>
-i also can code in a bit of java and i played a bit with c and c++
+i also can code in a bit of java and i played around a bit with c and c++
 
 i am also a linux enthusiast and have been using it for the past year or so
 
-you can check out <a href="https://marzeq.me" target="_blank">my website</a> and follow me on <a href="https://twitter.com/marzeqtwt" target="_blank">twitter</a>
+you can check out <a href="https://marzeq.me/" target="_blank">my website</a> and follow me on <a href="https://twitter.com/marzeqtwt/" target="_blank">twitter</a>
