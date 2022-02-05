@@ -15,6 +15,7 @@ currentdir=$a
 
 cp "$currentdir"/.bashrc "$HOME"/.bashrc
 cp "$currentdir"/.aliasrc "$HOME"/.aliasrc
+cp "$currentdir"/.alacritty.yml "$HOME"/.alacritty.yml
 mkdir -p "$HOME"/.bin
 
 ###############################################################################################################
