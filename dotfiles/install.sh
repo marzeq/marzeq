@@ -22,7 +22,8 @@ mkdir -p "$HOME"/.bin
 #                                            INSTALL PROGRAMS                                                 #
 ###############################################################################################################
 
-read -p "Do you want to install the frequently used programs? (only Arch and Ubuntu are fully supported) [y/n] " -n 1 -r
+read -p "Do you want to install the frequently used programs? [y/n]
+ONLY THE ARCH, UBUNTU (NOT DEBIAN) AND FEDORA REPOS AND PACKAGE MANAGERS ARE SUPPORTED!!!" -n 1 -r
 echo
 if [[ $REPLY =~ ^[Nn]$ ]]; then
 	exit
@@ -91,7 +92,7 @@ fi
 
 # auth git credentials with github cli
 if [[ $(git config --get credential.https://github.com.helper) ]]; then
-	echo "git is already authenticated"
+	echo "git is already authenticated with the github credentials"
 else
 	echo "##############################"
 	echo "# SELECT THE DEFAULT OPTIONS #"
@@ -113,6 +114,9 @@ else
     echo "Installing Discord"
     if command -v apt &> /dev/null; then
         pacstall -I discord
+        wget -O discord.deb https://discord.com/api/download?platform=linux&format=deb
+        sudo dpkg -i discord.deb
+        rm discord.deb
     elif command -v pacman &> /dev/null; then
         sudo pacman -S discord
     else
@@ -121,6 +125,7 @@ else
         sudo tar -xvzf discord.tar.gz -C /opt &> /dev/null
         echo "Symlinking /opt/Discord/Discord to /usr/bin/discord"
         sudo ln -s /opt/Discord/Discord /usr/bin/discord
+        sudo ln -s /opt/Discord/discord.desktop /usr/share/applications/discord.desktop
         rm discord.tar.gz
     fi
 fi
@@ -199,6 +204,8 @@ if command -v doas &> /dev/null; then
 else
 	if command -v pacman &> /dev/null; then
 		yay -S doas
+    if command -v apt &> /dev/null; then
+        pacstall -I doas-git
 	else
 		if command -v apt &> /dev/null; then
 			sudo apt install build-essential make bison flex libpam0g-dev
@@ -209,7 +216,7 @@ else
 		elif command -v zypper &> /dev/null; then
 			sudo zypper install gcc gcc-c++ make flex bison pam-devel byacc git
 		else
-			echo "No supported package manager found for installing doas, please install doas manually: https://github.com/slicer69/doas#installing-build-tools"
+			echo "No supported package manager found for installing doas dependencies, please install doas manually: https://github.com/slicer69/doas#installing-build-tools"
         	exit 1
     	fi
 		git clone https://github.com/slicer69/doas
