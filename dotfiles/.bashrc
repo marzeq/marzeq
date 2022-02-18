@@ -50,4 +50,4 @@ fi
 
 PATH="$PATH:~/.bin"
 
-pfetch
+if command -v pfetch &>/dev/null; then pfetch fi
