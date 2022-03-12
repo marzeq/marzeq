@@ -204,27 +204,23 @@ if command -v doas &> /dev/null; then
 else
 	if command -v pacman &> /dev/null; then
 		yay -S doas
-    if command -v apt &> /dev/null; then
+    elif command -v apt &> /dev/null; then
         pacstall -I doas-git
+	elif command -v dnf &> /dev/null; then
+		sudo dnf install gcc gcc-c++ make flex bison pam-devel byacc git
+	elif command -v yum &> /dev/null; then
+		sudo yum install gcc gcc-c++ make flex bison pam-devel byacc git
+	elif command -v zypper &> /dev/null; then
+		sudo zypper install gcc gcc-c++ make flex bison pam-devel byacc git
 	else
-		if command -v apt &> /dev/null; then
-			sudo apt install build-essential make bison flex libpam0g-dev
-		elif command -v dnf &> /dev/null; then
-			sudo dnf install gcc gcc-c++ make flex bison pam-devel byacc git
-		elif command -v yum &> /dev/null; then
-			sudo yum install gcc gcc-c++ make flex bison pam-devel byacc git
-		elif command -v zypper &> /dev/null; then
-			sudo zypper install gcc gcc-c++ make flex bison pam-devel byacc git
-		else
-			echo "No supported package manager found for installing doas dependencies, please install doas manually: https://github.com/slicer69/doas#installing-build-tools"
-        	exit 1
-    	fi
-		git clone https://github.com/slicer69/doas
-		cd doas
-		make && sudo make install
-		cd .. && rm -rf doas
-		echo "permit ${USER} as root" | sudo tee -a /usr/local/etc/doas.conf
+		echo "No supported package manager found for installing doas dependencies, please install doas manually: https://github.com/slicer69/doas#installing-build-tools"
+		exit 1
 	fi
+	git clone https://github.com/slicer69/doas
+	cd doas
+	make && sudo make install
+	cd .. && rm -rf doas
+	echo "permit ${USER} as root" | sudo tee -a /usr/local/etc/doas.conf
 fi
 
 echo ""
