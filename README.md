@@ -11,4 +11,4 @@ i am also a linux enthusiast and have been using it for the past year or so
 
 you can check out <a href="https://marzeq.me/" target="_blank">my website</a> and follow me on <a href="https://twitter.com/marzeqtwt/" target="_blank">twitter</a>
 
-[![discord profile](https://profileembed.herokuapp.com?userid=500669086947344384)](https://discord.com/users/500669086947344384)
+[![discord profile](https://profileembed.herokuapp.com/?userid=500669086947344384)](https://discord.com/users/500669086947344384)
