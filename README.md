@@ -9,4 +9,4 @@ I am also competent in python and know some java.
 
 I love linux and have been using it for the two years or so.
 
-you can check out <a href="https://marzeq.me/" target="_blank">my website</a> and follow me on <a href="https://twitter.com/marzeqtwt/" target="_blank">twitter</a>
+You can check out <a href="https://marzeq.me/" target="_blank">my website</a> and follow me on <a href="https://twitter.com/marzeqtwt/" target="_blank">twitter</a>.
