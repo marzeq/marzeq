@@ -1,1 +1,1 @@
-[GPG RSA public key](https://hastebin.skyra.pw/oqugehuzur.bash). This is my only GPG key
+[GPG RSA public key](https://raw.githubusercontent.com/marzeq/marzeq/master/public-key.asc). This is my only GPG key
