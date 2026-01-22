@@ -1,0 +1,29 @@
+youtube.com###header:has(ytd-feed-filter-chip-bar-renderer)
+youtube.com###frosted-glass:style(height: 58px !important;)
+youtube.com###dismissible:has(:has-text("Breaking news"))
+youtube.com###dismissible:has(:has-text("Shorts"))
+youtube.com###personal-greeting
+
+youtube.com##ytd-guide-section-renderer:has(:has-text("Explore"))
+youtube.com##.tp-yt-app-drawer:watch-attr(opened) ytd-guide-section-renderer:has(:has-text("Explore"))
+
+youtube.com##ytd-guide-section-renderer:has(:has-text("More from YouTube"))
+youtube.com##.tp-yt-app-drawer:watch-attr(opened) ytd-guide-section-renderer:has(:has-text("More from YouTube"))
+
+youtube.com##ytd-guide-entry-renderer:has(:has-text("Shorts"))
+youtube.com##.tp-yt-app-drawer:watch-attr(opened) ytd-guide-entry-renderer:has(:has-text("Shorts"))
+
+youtube.com##ytd-mini-guide-entry-renderer:has(:has-text("Shorts"))
+youtube.com##.tp-yt-app-drawer:watch-attr(opened) ytd-mini-guide-entry-renderer:has(:has-text("Shorts"))
+
+youtube.com##yt-button-view-model:has(:has-text("Clip"))
+youtube.com##ytd-menu-renderer:watch-attr(has-items) yt-button-view-model:has(:has-text("Thanks"))
+
+youtube.com##yt-button-view-model:has(:has-text("Thanks"))
+youtube.com##ytd-menu-renderer:watch-attr(has-items) yt-button-view-model:has(:has-text("Clip"))
+
+youtube.com##ytd-menu-renderer:watch-attr(has-items) ytd-menu-service-item-renderer:has(:has-text("Clip"))
+youtube.com##ytd-menu-service-item-renderer:has(:has-text("Clip"))
+
+youtube.com##ytd-menu-renderer:watch-attr(has-items) ytd-menu-service-item-renderer:has(:has-text("Thanks"))
+youtube.com##ytd-menu-service-item-renderer:has(:has-text("Thanks"))
